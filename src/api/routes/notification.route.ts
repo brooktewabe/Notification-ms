@@ -16,6 +16,7 @@ router.post(
   notificationController.sendEmail as RequestHandler
 );
 
+
 // Get notifications
 router.get(
   "/",
