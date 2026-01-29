@@ -1,0 +1,47 @@
+{
+  "name": "notification-service",
+  "version": "1.0.0",
+  "description": "Notification ms",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-email/components": "^1.0.2",
+    "@react-email/render": "^2.0.0",
+    "better-sqlite3": "^12.5.0",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-xss-sanitizer": "^2.0.0",
+    "firebase-admin": "^13.2.0",
+    "helmet": "^8.0.0",
+    "http-status": "^2.1.0",
+    "joi": "^17.13.3",
+    "morgan": "^1.10.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "resend": "^4.0.1",
+    "rotating-file-stream": "^3.2.7",
+    "twilio": "^5.3.5",
+    "winston": "^3.17.0",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.2.7",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}
