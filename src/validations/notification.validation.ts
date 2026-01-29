@@ -20,3 +20,13 @@ export const createEmailSchema = {
   }).or("templateId", "html", "text"),
 };
 
+export const createSmsSchema = {
+  body: Joi.object().keys({
+    to: Joi.alternatives().try(Joi.string(), Joi.array().items(Joi.string())).required(),
+    body: Joi.string().required(),
+    scheduledFor: Joi.date().optional(),
+    from: Joi.string().optional(),
+    priority: Joi.string().valid("normal", "priority").default("normal"),
+  }),
+};
+

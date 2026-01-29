@@ -57,6 +57,31 @@ export const getEmailTemplates = async (req: Request, res: Response, next: NextF
   }
 };
 
+export const sendSms = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { priority, scheduledFor, ...payload } = req.body;
+
+    const notification = await notificationService.createNotification(
+      "sms",
+      payload,
+      priority,
+      scheduledFor ? new Date(scheduledFor) : undefined,
+    );
+
+    res.status(httpStatus.CREATED).json({
+      success: true,
+      message: "SMS notification queued successfully",
+      data: {
+        notificationId: notification.id,
+        status: notification.status,
+        scheduledFor: notification.scheduledFor,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 
 export const getNotification = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -159,6 +184,7 @@ export const getStats = async (req: Request, res: Response, next: NextFunction) 
 
 export const notificationController = {
   sendEmail,
+  sendSms,
   getNotification,
   getNotifications,
   retryNotification,

@@ -4,7 +4,6 @@ import { validate } from "../../lib/validate";
 import {
   createEmailSchema,
   createSmsSchema,
-  createPushSchema,
 } from "../../validations/notification.validation";
 
 const router = express.Router();
@@ -16,6 +15,11 @@ router.post(
   notificationController.sendEmail as RequestHandler
 );
 
+router.post(
+  "/sms",
+  validate(createSmsSchema),
+  notificationController.sendSms as RequestHandler
+);
 
 // Get notifications
 router.get(

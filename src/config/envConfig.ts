@@ -20,6 +20,11 @@ export interface Config {
     apiKey: string;
     fromEmail: string;
   };
+  twilio: {
+    accountSid: string;
+    authToken: string;
+    phoneNumber: string;
+  };
 
   queue: {
     maxRetryAttempts: number;
@@ -48,7 +53,11 @@ export const config: Config = {
     apiKey: envVars.RESEND_API_KEY,
     fromEmail: envVars.FROM_EMAIL,
   },
-
+  twilio: {
+    accountSid: envVars.TWILIO_ACCOUNT_SID,
+    authToken: envVars.TWILIO_AUTH_TOKEN,
+    phoneNumber: envVars.TWILIO_PHONE_NUMBER,
+  },
   queue: {
     maxRetryAttempts: envVars.MAX_RETRY_ATTEMPTS,
     processInterval: envVars.QUEUE_PROCESS_INTERVAL,

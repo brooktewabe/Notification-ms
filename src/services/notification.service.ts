@@ -12,7 +12,6 @@ import type {
   INotification,
   IEmailPayload,
   ISmsPayload,
-  IPushPayload,
   NotificationType,
   NotificationPriority,
 } from "../config/types/notification.d";
@@ -57,7 +56,7 @@ class NotificationService {
 
   async createNotification(
     type: NotificationType,
-    payload: IEmailPayload | ISmsPayload | IPushPayload,
+    payload: IEmailPayload | ISmsPayload,
     priority: NotificationPriority = "normal",
     scheduledFor?: Date,
   ): Promise<INotification> {
